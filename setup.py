@@ -9,6 +9,11 @@ setup(name='grpcadmin',
       license='MIT',
       packages=['grpcadmin'],
       zip_safe=False,
-      entry_points={
-            'console_scripts': ['grpc-admin=grpcadmin.command_line:main'],
-      })
+      # install_requires=[
+      #       'click',
+      # ],
+      entry_points='''
+          [console_scripts]
+          grpc-admin=grpcadmin.command_line:cli
+      ''',
+      )
