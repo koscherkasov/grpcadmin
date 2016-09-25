@@ -1,19 +1,15 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
-setup(name='grpcadmin',
-      version='0.1',
-      description='Admin for hrpc',
-      url='https://github.com/koscherkasov/grpcadmin',
-      author='',
-      author_email='john@example.com',
-      license='MIT',
-      packages=['grpcadmin'],
-      zip_safe=False,
-      # install_requires=[
-      #       'click',
-      # ],
-      entry_points='''
-          [console_scripts]
-          grpc-admin=grpcadmin.command_line:cli
-      ''',
-      )
+setup(
+    name='grpc-admin',
+    version='0.1',
+    packages=find_packages(),
+    include_package_data=True,
+    install_requires=[
+        'Click',
+    ],
+    entry_points='''
+        [console_scripts]
+        grpc-admin=grpcadmin.scripts:cli
+    ''',
+)
