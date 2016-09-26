@@ -10,13 +10,24 @@ PROTO_TEMPLATE = 'syntax="proto2"\n'
 
 
 def create_service(name):
+    """Creating stub dirs service
+
+    :param name: services name
+    :type name: str
+    """
+
+    # create common dir for service
     os.makedirs(name, exist_ok=False)
+
+    # create proto_buf dir with proto file
     os.makedirs(os.path.join(name, PROTO_BUF_DIR))
-    with open(os.path.join(name, PROTO_BUF_DIR, name + PROTO_FORMAT), 'tw', encoding=ENCODING) as f:
+    with open(os.path.join(name, PROTO_BUF_DIR, name + PROTO_FORMAT), 'w', encoding=ENCODING) as f:
         f.write(PROTO_TEMPLATE)
 
+    # create package proto_py
     os.makedirs(os.path.join(name, PROTO_PY_DIR))
-    open(os.path.join(name, PROTO_PY_DIR, INIT_FILE), 'tw').close()
+    open(os.path.join(name, PROTO_PY_DIR, INIT_FILE), 'w').close()
 
+    # create package services
     os.makedirs(os.path.join(name, SERVICES_DIR))
-    open(os.path.join(name, SERVICES_DIR, INIT_FILE), 'tw').close()
+    open(os.path.join(name, SERVICES_DIR, INIT_FILE), 'w').close()
